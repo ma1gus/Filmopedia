@@ -4,20 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Main Menu</title>
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
 
 <h1>Main Menu</h1>
-<div>
-    <table border="1">
-        <tr th:each="film : ${films}">
-            <th th:text="${film.getId}"></th>
-            <th th:text="${film.getTitle}"></th>
-            <th><img th:src="${film.getImage}" width="600" height="600"></img></th>
-            <th th:text="${film.getResultType}"></th>
-            <th th:text="${film.getDescription}"></th>
-        </tr>
-    </table>
+<div class="d1">
+
+    <form>
+        <input type="text" placeholder="Искать здесь...">
+        <button type="submit"></button>
+    </form>
+
 </div>
+
+<div th:each="film : ${films}">
+    <ul class="menu">
+        <li style="display: list-item; position: relative; top: 300px; left: 13px;">
+            <img th:src="${film.getImage}" width="150" height="300">
+            <div>
+                <h3 th:text="${film.getTitle}"></h3>
+                <span th:text="${film.getDescription}"><a href="#"><label> </label></a></span>
+                <p>Lorem Ipsum is simply dummy text of the printing &amp; typesetting industry.</p>
+            </div>
+        </li>
+    </ul>
+</div>
+
 </body>
 </html>

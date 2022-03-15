@@ -10,12 +10,12 @@ public class Film {
     private String resultType;
     private String description;
 
-    public Film(Map<String, Object> map) {
-        id = map.get("id").toString();
-        title = map.get("title").toString();
-        image = map.get("image").toString();
-        resultType = map.get("resultType").toString();
-        description = map.get("description").toString();
+    public Film(Map<String, String> map) {
+        id = map.get("id");
+        title = map.get("title");
+        image = map.get("image");
+        resultType = map.get("resultType");
+        description = map.get("description");
 
     }
 

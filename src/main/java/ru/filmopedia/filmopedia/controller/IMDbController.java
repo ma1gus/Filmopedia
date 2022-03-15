@@ -30,7 +30,7 @@ public class IMDbController {
     public String nachalo(Model model) {
         try {
             HttpURLConnection http;
-            URL url = new URL("https://imdb-api.com/en/API/SearchMovie/k_zima5p9v/inception");
+            URL url = new URL("https://imdb-api.com/en/API/SearchMovie/k_zima5p9v/inception (2010)");
             try {
                 http = (HttpURLConnection) url.openConnection();
                 http.setRequestMethod("GET");
@@ -40,14 +40,14 @@ public class IMDbController {
                 Map<String,Object> result =
                         new ObjectMapper().readValue(bufferedReader, HashMap.class);
 
-                List<Map<String,Object>> nachaloResult = (List<Map<String, Object>>) result.get("results");
+                List<Map<String,String>> nachaloResult = (List<Map<String, String>>) result.get("results");
 
 
 
                 bufferedReader.close();
                 List<Film> films = new ArrayList<>();
                 nachaloResult.forEach(x -> films.add(new Film(x)));
-                result.forEach( (x, y) -> System.out.println(x + " " + y));
+//                result.forEach( (x, y) -> System.out.println(x + " " + y));
                 model.addAttribute("films", films);
 
             } catch (IOException e) {
