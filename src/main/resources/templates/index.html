@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +8,16 @@
 <body>
 
 <h1>Main Menu</h1>
-https://imdb-api.com/en/API/SearchMovie/k_zima5p9v/inception 2010
+<div>
+    <table border="1">
+        <tr th:each="film : ${films}">
+            <th th:text="${film.getId}"></th>
+            <th th:text="${film.getTitle}"></th>
+            <th><img th:src="${film.getImage}" width="600" height="600"></img></th>
+            <th th:text="${film.getResultType}"></th>
+            <th th:text="${film.getDescription}"></th>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
