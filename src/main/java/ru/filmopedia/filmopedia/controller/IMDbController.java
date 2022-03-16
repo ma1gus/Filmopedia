@@ -21,13 +21,10 @@ import java.util.Map;
 
 @Controller
 public class IMDbController {
-    @GetMapping("/nachalo")
-    public String main(Model model) {
-        return "index";
-    }
-
     @GetMapping("/")
     public String nachalo(Model model) {
+
+        //переделать так, чтобы запрос для поиска парсился из поля поиска и передавался в URL
         try {
             HttpURLConnection http;
             URL url = new URL("https://imdb-api.com/en/API/SearchMovie/k_zima5p9v/inception (2010)");
@@ -47,7 +44,6 @@ public class IMDbController {
                 bufferedReader.close();
                 List<Film> films = new ArrayList<>();
                 nachaloResult.forEach(x -> films.add(new Film(x)));
-//                result.forEach( (x, y) -> System.out.println(x + " " + y));
                 model.addAttribute("films", films);
 
             } catch (IOException e) {
