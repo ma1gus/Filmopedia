@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.filmopedia.filmopedia.config.IMDbSearchConfig;
 import ru.filmopedia.filmopedia.models.Film;
+import ru.filmopedia.filmopedia.models.URLOfSearchIMDB;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,9 +21,10 @@ import java.net.URL;
 import java.util.*;
 
 @Controller
+@SuppressWarnings(value = "unchecked")
 public class IMDbController {
 
-    private List<Film> list = IMDbSearchConfig.getFilmsBySearch("nachalo");
+    private List<Film> list = (List<Film>) IMDbSearchConfig.switchOfSearchUrl(URLOfSearchIMDB.URL_SEARCH_FILM, "nachalo");
 
     @GetMapping("/")
     public String nachalo(Model model) {
@@ -32,7 +34,7 @@ public class IMDbController {
 
     @GetMapping("/search")
     public String getFilmFromSearch(@RequestParam(value = "film_name") String filmName, Model model) {
-        list = IMDbSearchConfig.getFilmsBySearch(filmName);
+        list = (List<Film>) IMDbSearchConfig.switchOfSearchUrl(URLOfSearchIMDB.URL_SEARCH_FILM, filmName);;
         return "redirect:/";
     }
 

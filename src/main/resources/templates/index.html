@@ -20,7 +20,7 @@
         <li style="display: list-item; position: relative; top: 300px; left: 13px;">
             <img th:src="${film.getImage}" width="150" height="300">
             <div>
-                <h3 th:text="${film.getTitle}"></h3>
+                <a href="page-film.html" th:text="${film.getTitle}"></a>
                 <span th:text="${film.getDescription}"><a href="#"><label> </label></a></span>
                 <p>Lorem Ipsum is simply dummy text of the printing &amp; typesetting industry.</p>
             </div>
