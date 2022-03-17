@@ -16,7 +16,9 @@ public class Film {
         image = map.get("image");
         resultType = map.get("resultType");
         description = map.get("description");
+    }
 
+    public Film() {
     }
 
     public String getId() {

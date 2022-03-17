@@ -1,0 +1,31 @@
+.list
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.list__item
+{
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.note {
+    width: auto; /* Ширина блока */
+    height: auto; /* Высота блока */
+    background-color: #ffffff; /* Фоновый цвет*/
+    border: 2px solid #D4D4D4; /* Ширина и цвет границ*/
+    border-radius: 10px; /* Радиус границ*/
+    box-shadow: 0 0 15px #A9A9A9; /* Размер и цвет тени блока*/
+}
+
+.grid-container {
+    display: inline-grid;
+    gap: 50px 100px;
+    width: 19rem;
+}

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Main Menu</title>
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link href="../static/css/style_div_blocks.css" th:href="@{/css/style_div_blocks.css}" rel="stylesheet"/>
+
 </head>
 <body>
 
@@ -15,17 +17,15 @@
     </form>
 </div>
 
-<div th:each="film : ${films}">
-    <ul class="menu">
-        <li style="display: list-item; position: relative; top: 300px; left: 13px;">
-            <img th:src="${film.getImage}" width="150" height="300">
-            <div>
-                <a href="page-film.html" th:text="${film.getTitle}"></a>
-                <span th:text="${film.getDescription}"><a href="#"><label> </label></a></span>
-                <p>Lorem Ipsum is simply dummy text of the printing &amp; typesetting industry.</p>
-            </div>
-        </li>
-    </ul>
+
+<div class="grid-container" th:each="film : ${films}">
+    <div>
+        <img th:src="${film.getImage}" width="150px" height="300px" alt="Sample photo">
+        <div >
+            <h5 th:text="${film.getTitle}">Id</h5>
+            <p th:text="${film.getDescription}">Desc</p>
+        </div>
+    </div>
 </div>
 
 </body>
